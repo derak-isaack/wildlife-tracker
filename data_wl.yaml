@@ -1,0 +1,15 @@
+# train: /home/ankan_opencv/Officework/Blogs/Ultralytics-Explorer_API/final_data/train/images/ # train images folder
+# val: /home/ankan_opencv/Officework/Blogs/Ultralytics-Explorer_API/final_data/valid/images/ # val images folder
+# test: /home/ankan_opencv/Officework/Blogs/Ultralytics-Explorer_API/final_data/test/images/ # test images folder
+
+path: C:\Users\user\Desktop\ML projects\Wildlife Tracker\final_data\
+train: train\images
+val: valid\images
+
+
+# Classes
+names:
+  0: buffalo
+  1: elephant
+  2: rhino
+  3: zebra
