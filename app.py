@@ -24,7 +24,7 @@
 #     st.file_uploader
 # import torch
 import streamlit as st 
-from ultralytics import YOLO 
+from ultralytics import YOLO
 # device = torch.device('cpu')
 # device.load_state_dict(torch.load('wildlife5_vision.pth', map_location=device))
 # state_dict = torch.load('wildlife5_vision.pth', map_location=device)
