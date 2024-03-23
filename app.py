@@ -24,7 +24,8 @@
 #     st.file_uploader
 import torch
 import streamlit as st 
-#from ultralytics import YOLO
+from ultralytics import YOLO
+
 device = torch.device('cpu')
 device.load_state_dict(torch.load('wildlife5_vision.pth', map_location=device))
 state_dict = torch.load('wildlife5_vision.pth', map_location=device)
@@ -32,10 +33,16 @@ state_dict = torch.load('wildlife5_vision.pth', map_location=device)
 
 
 # Instantiate the YOLO model
-# model = YOLO('wildlife5_vision.pth')
+model = YOLO()
 
 # Load the state dictionary into the model
-# model.load_state_dict(state_dict)
+model_state_dict = model.state_dict()  # Get the model state dictionary
+
+for key in state_dict.keys():
+    if 'model.model' in key:
+        new_key = key.replace('model.model.', '')  # Remove the redundant 'model.model' prefix
+        model_state_dict[new_key] = state_dict[key]
+model.load_state_dict(model_state_dict)
 
 def main():
     st.title('Wildlife5 Vision')
@@ -47,7 +54,7 @@ def main():
         image_bytes = uploaded_file.getvalue()
         
         # Perform object detection on the uploaded image
-        results = state_dict.track(image_bytes, show = True, save = True)
+        results = model(image_bytes)
         
         # Display the results
         st.image(results.render(), caption="Detected Objects", use_column_width=True)
