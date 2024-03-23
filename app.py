@@ -22,7 +22,7 @@
 #     model.track(source="elephant-4736008.jpg", show=True, save=True)  # track an image
     
 #     st.file_uploader
-import torch
+
 import streamlit as st 
 from ultralytics import YOLO
 
