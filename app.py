@@ -22,20 +22,20 @@
 #     model.track(source="elephant-4736008.jpg", show=True, save=True)  # track an image
     
 #     st.file_uploader
-import torch
+# import torch
 import streamlit as st 
 from ultralytics import YOLO 
-device = torch.device('cpu')
-device.load_state_dict(torch.load('wildlife5_vision.pth', map_location=device))
-state_dict = torch.load('wildlife5_vision.pth', map_location=device)
+# device = torch.device('cpu')
+# device.load_state_dict(torch.load('wildlife5_vision.pth', map_location=device))
+# state_dict = torch.load('wildlife5_vision.pth', map_location=device)
 # Load the model state dictionary
 
 
 # Instantiate the YOLO model
-model = YOLO()
+model = YOLO('wildlife5_vision.pth')
 
 # Load the state dictionary into the model
-model.load_state_dict(state_dict)
+# model.load_state_dict(state_dict)
 
 def main():
     st.title('Wildlife5 Vision')
