@@ -7,13 +7,14 @@ def load_model(model_path):
     model = torch.load(model_path, map_location=device)
     return model
 
-#Load the best model from trained weights in local machine  
-load_model = load_model('train6/weights/best.pt')
+#Load the best model from trained weights in local machine
+path = 'train6/weights/best.pt'  
+model = load_model(path)
 
 #Define function for detecting animals.
 def predict(image):
     with torch.no_grad():
-        output = load_model(image)
+        output = model(image)
     return output
 
 #Define main function for deployment   
