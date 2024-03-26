@@ -1,5 +1,6 @@
 import torch
 import streamlit as st 
+import cv2
 
 def load_model(model_path):
     device = torch.device('cpu')
