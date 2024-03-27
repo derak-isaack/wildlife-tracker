@@ -6,6 +6,19 @@ Wildlife are a very important factor in our ecosystem as they help balance natur
 
 Training deep learning models for wildlife tracking on CPUs can be time-consuming. Utilizing `GPUs`, such as those provided by `Google Colab`, is essential for efficient training. Models will be trained on GPUs and later saved for deployment using torch on CPUs. This documentation[https://pytorch.org/tutorials/beginner/saving_loading_models.html] comes in handy to understand loading of `GPU` trained models on the `CPU`.
 
+The optimum epochs used for training that saw an improvement in the `precision`, `recall` and `F1` scores was 25. It is more evident ![here](PR_curve.png)
+
+The chosen metrics seem to be improving with every iteration as evident in the ![Precsion-Recall curve](PR_curve.png) and ![F1 Scores](F1_curve.png). 
+
+
+The ![Precision](P_curve.png) and ![Recall](R_curve.png) curves independently also show the same characteristic in the combined curve. 
+
 ## Deployment 
 
-Streamlit or Neural magic will be the tools for deployment. The later is however reccommended because of its scalability properties and efficiency in handling large data. As this is a deep learning model, deploying it uisng **Neural magic** will offer the efficiency required. 
+The saved model weights will be deployed using `Streamlit` because of its simple UI. The saved model can also be deployed on **Neural magic**. 
+
+The optimum model weights used in the training stage to improve the `precision` and `recall` scores using the `GPUs` can be found [here](train6/weights). 
+
+## Future steps
+
+Deploy the model on the **Neural Magic** platform because of its scalability properties and efficiency in handling large volumes of data. As this is a deep learning model, deploying it uisng **Neural magic** in future will offer the efficiency required. 
